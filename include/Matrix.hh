@@ -233,7 +233,7 @@ template <typename Templ_Type, unsigned int Templ_Size>
 std::ostream &operator<<(std::ostream &out, const Matrix<Templ_Type,Templ_Size> &mat) {
     for (unsigned int i = 0; i < Templ_Size; i++) {
         for (unsigned int j = 0; j < Templ_Size; j++) {
-            out << std::setw(16) << std::fixed << std::setprecision(10) << "| " << mat(i, j) << " | ";
+            out << std::setw(17) << std::fixed << std::setprecision(10) << "| " << mat(i, j) << " | ";
         }
         std::cout << std::endl;
     }

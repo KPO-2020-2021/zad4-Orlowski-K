@@ -17,6 +17,7 @@
 
 #include "Vector3D.hh"
 #include "Matrix3x3.hh"
+#include "Matrix4x4.hh"
 #include "Cuboid.hh"
 #include "lacze_do_gnuplota.hh"
 
@@ -58,7 +59,7 @@ int main() {
   std::ifstream infile;
   std::ofstream outfile;
   PzG::LaczeDoGNUPlota  Lacze;
-  Matrix3x3 rotator,new_rotation;
+  Matrix3x3 rotator,new_rotation,basic;
   Vector3D translator;
   double angle;
   unsigned int times;
@@ -87,6 +88,7 @@ int main() {
       switch(option[0]){
        
           case 'o' :
+              rotator = basic;
               std::cout << "Podaj sekwencje oznaczen osi oraz katy obrotu w stopniach:\n"; 
               while(axis[0] != '.'){
                 std::cin >> axis;
@@ -164,6 +166,13 @@ int main() {
       }
 
     }
+
+
+    Matrix4x4 test;
+    Vector3D test_translation = {10,40,-5};
+    
+    test = rotate_translate(90,180,90,test_translation);
+    std::cout << std::endl <<"Test macierzy jednoczesnej rtacji i translacji: \n\n" <<test << std::endl;
 
     return 0;
 }
