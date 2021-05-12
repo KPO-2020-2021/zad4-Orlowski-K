@@ -9,10 +9,9 @@
 
 
 /*!
- * \file
- * \brief Plik zawiera definicje macierzy 3x3
+ * \file Matrix3x3.hh
  *
- * Plik zawiera definicje macierzy 3x3
+ * \brief Plik zawiera definicje macierzy 3x3
  */
 
 
@@ -26,7 +25,14 @@
 typedef Matrix<double,3>  Matrix3x3;
 
 
-
+/*!
+ * \brief Funkcja tworzaca macierz obrotu
+ * \param axis - os obrotu
+ * \param angle - kat podany w stopniach
+ * 
+ * \retval Matrix3x3 tmp - maciez obrotu 
+ * 
+ */
 Matrix3x3 create_rotation(char axis,double angle);
 
 

@@ -7,17 +7,13 @@
 
 
 /*!
- * \file
- * \brief Ten plik zawiera definicję szablonu Matrix<>
+ * \file Matrix.hh
  *
- *  Plik zawierajacy definicje szablonu Matrix<>
+ *  \brief Plik zawierajacy definicje szablonu Matrix<>
  */
 
-
-
-
 /*!
- *  \brief Opis  szablonu klasy
+ *  \brief
  *  Szablon modeluje pojecie macierzy kwadratowej.
  *  Liczby macierzy sa przechowywane jako tablica wielowymiarowa
  *  wybranego typu. Przeciazenia operatorow pozwalaja na modyfikacje i 
@@ -35,7 +31,7 @@ private:
 
 public:
     Matrix(Templ_Type tmp[Templ_Size][Templ_Size]);            // Konstruktor klasy
-
+  
     Matrix();                               // Konstruktor klasy
 
     Matrix operator * (Matrix tmp);
@@ -57,7 +53,7 @@ public:
  |  Argumenty:                                                                |
  |      Brak argumentow.                                                      |
  |  Zwraca:                                                                   |
- |      Macierz jednostkowa                                                   |
+ |   \retval Macierz jednostkowa                                              |
  */
 template <typename Templ_Type, unsigned int Templ_Size>
 Matrix<Templ_Type,Templ_Size>::Matrix() {
@@ -76,9 +72,9 @@ Matrix<Templ_Type,Templ_Size>::Matrix() {
 /******************************************************************************
  * ! \brief Konstruktor parametryczny klasy Matrix.                           |
  |  Argumenty:                                                                |
- |      tmp - dwuwymiarowa tablica z elementami typu double.                  |
+ |  \param tmp - dwuwymiarowa tablica z elementami typu double.               |
  |  Zwraca:                                                                   |
- |      Macierz wypelniona wartosciami podanymi w argumencie.                 |
+ |   \retval Macierz wypelniona wartosciami podanymi w argumencie.            |
  */
 template <typename Templ_Type, unsigned int Templ_Size>
 Matrix<Templ_Type,Templ_Size>::Matrix(Templ_Type tmp[Templ_Size][Templ_Size]) {
@@ -93,10 +89,10 @@ Matrix<Templ_Type,Templ_Size>::Matrix(Templ_Type tmp[Templ_Size][Templ_Size]) {
 /******************************************************************************
  * ! \brief Realizuje mnozenie macierzy przez wektor.                         |
  |  Argumenty:                                                                |
- |      this - macierz, czyli pierwszy skladnik mnozenia,                     |
- |      tmp - wektor, czyli drugi skladnik mnozenia.                          |
+ |    \param  this - macierz, czyli pierwszy skladnik mnozenia,               |
+ |    \param  tmp - wektor, czyli drugi skladnik mnozenia.                    |
  |  Zwraca:                                                                   |
- |      Iloczyn dwoch skladnikow przekazanych jako wektor.                    |
+ |     \retval Iloczyn dwoch skladnikow przekazanych jako wektor.             |
  */
 template <typename Templ_Type, unsigned int Templ_Size>
 Vector<Templ_Type,Templ_Size> Matrix<Templ_Type,Templ_Size>::operator * (Vector<Templ_Type,Templ_Size> tmp) {
@@ -116,10 +112,10 @@ Vector<Templ_Type,Templ_Size> Matrix<Templ_Type,Templ_Size>::operator * (Vector<
 /******************************************************************************
  * ! \brief Funktor macierzy                                                  |
  |  Argumenty:                                                                |
- |      row - numer wiersza.                                                  |
- |      column - numer kolumny.                                               |
+ |    \param  row - numer wiersza.                                            |
+ |    \param  column - numer kolumny.                                         |
  |  Zwraca:                                                                   |
- |      Wartosc macierzy w danym miejscu tablicy.                             |
+ |     \retval Wartosc macierzy w danym miejscu tablicy.                      |
  */
 template <typename Templ_Type, unsigned int Templ_Size>
 Templ_Type &Matrix<Templ_Type,Templ_Size>::operator()(unsigned int row, unsigned int column) {
@@ -139,10 +135,10 @@ Templ_Type &Matrix<Templ_Type,Templ_Size>::operator()(unsigned int row, unsigned
 /******************************************************************************
  * ! \brief Funktor macierzy                                                  |
  |  Argumenty:                                                                |
- |      row - numer wiersza.                                                  |
- |      column - numer kolumny.                                               |
+ |   \param row - numer wiersza.                                              |
+ |   \param column - numer kolumny.                                           |
  |  Zwraca:                                                                   |
- |      Wartosc macierzy w danym miejscu tablicy jako stala.                  |
+ |    \retval  Wartosc macierzy w danym miejscu tablicy jako stala.           |
  */
 template <typename Templ_Type, unsigned int Templ_Size>
 const Templ_Type &Matrix<Templ_Type,Templ_Size>::operator () (unsigned int row, unsigned int column) const {
@@ -161,10 +157,10 @@ const Templ_Type &Matrix<Templ_Type,Templ_Size>::operator () (unsigned int row, 
 /******************************************************************************
  * ! \brief Przeciążenie dodawania macierzy                                   |
  |  Argumenty:                                                                |
- |      this - macierz, czyli pierwszy skladnik dodawania,                    |
- |      v - wektor, czyli drugi skladnik dodawania.                           |
+ |   \param this - macierz, czyli pierwszy skladnik dodawania,                |
+ |   \param v - wektor, czyli drugi skladnik dodawania.                       |
  |  Zwraca:                                                                   |
- |      Macierz - iloczyn dwóch podanych macierzy.                            |
+ |    \retval Macierz - iloczyn dwóch podanych macierzy.                      |
  */
 template <typename Templ_Type, unsigned int Templ_Size>
 Matrix<Templ_Type,Templ_Size> Matrix<Templ_Type,Templ_Size>::operator + (Matrix<Templ_Type,Templ_Size> tmp) {
@@ -182,10 +178,10 @@ Matrix<Templ_Type,Templ_Size> Matrix<Templ_Type,Templ_Size>::operator + (Matrix<
 /******************************************************************************
  * ! \brief Realizuje mnozenie dwoch macierzy                                 |
  |  Argumenty:                                                                |
- |      this - macierz z lewej strony                                         |
- |      tmp - macierz z prawej strony                                         |
+ |    \param  this - macierz z lewej strony                                   |
+ |    \param  tmp  - macierz z prawej strony                                  |
  |  Zwraca:                                                                   |
- |      Nowa macierz kwadratowa                                               |
+ |     \retval Nowa macierz kwadratowa                                        |
  */
 template <typename Templ_Type, unsigned int Templ_Size>
 Matrix<Templ_Type,Templ_Size> Matrix<Templ_Type,Templ_Size>::operator * (Matrix<Templ_Type,Templ_Size> tmp){
@@ -210,8 +206,8 @@ Matrix<Templ_Type,Templ_Size> Matrix<Templ_Type,Templ_Size>::operator * (Matrix<
 /******************************************************************************
  * ! \brief Przeciazenie operatora >>                                         |
  |  Argumenty:                                                                |
- |      in - strumien wyjsciowy,                                              |
- |      mat - macierz.                                                        |
+ |    \param in  - strumien wyjsciowy,                                        |
+ |    \param mat - macierz.                                                   |
  */
 template <typename Templ_Type, unsigned int Templ_Size>
 std::istream &operator>>(std::istream &in, Matrix<Templ_Type,Templ_Size> &mat) {
@@ -226,8 +222,10 @@ std::istream &operator>>(std::istream &in, Matrix<Templ_Type,Templ_Size> &mat) {
 /******************************************************************************
  * ! \brief Przeciazenie operatora <<                                         |
  |  Argumenty:                                                                |
- |      out - strumien wejsciowy,                                             |
- |      mat - macierz.                                                        |
+ |      \param out - strumien wejsciowy,                                      |
+ |      \param mat - macierz.                                                 |
+ |  Zwraca:
+ |      \retval out - strumien
  */
 template <typename Templ_Type, unsigned int Templ_Size>
 std::ostream &operator<<(std::ostream &out, const Matrix<Templ_Type,Templ_Size> &mat) {
@@ -244,9 +242,9 @@ std::ostream &operator<<(std::ostream &out, const Matrix<Templ_Type,Templ_Size> 
 /******************************************************************************
  * ! \brief Wyznacznik macierzy                                               |
  |  Argumenty:                                                                |
- |      this - macierz, ktorej wyznacznik obliczamy                           |
+ |      \param this - macierz, ktorej wyznacznik obliczamy                    
  |  Wynik:                                                                    |
- |       Wyliczenie wyznacznika macierzy metoda eliminacji Gaussa             |
+ |       \retval Wyliczenie wyznacznika macierzy metoda eliminacji Gaussa     |
  */
 template <typename Templ_Type, unsigned int Templ_Size>
 double Matrix<Templ_Type,Templ_Size>::det() const{

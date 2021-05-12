@@ -9,14 +9,14 @@
 
 
 /*!
- * \file
+ * \file Vector.hh
  * \brief Ten plik zawiera definicję szablonu Vector<>
  *
  */
 
 /*!
- *  \brief opis szablonu klasy
- *  Klasa opisujaca wektor w przestrzeni ( w tym przypadku w 2 wymiarach ).
+ *  \brief
+ *  Szablon opisujacy wektor w przestrzeni.
  *  Za jego pomoca opisywane sa wierzcholki dowolnej figury jako wektory
  *  o poczatku w poczatku ukladu wspolrzednych. Wektory skladaja sie z 
  *  tablicy typu double, w ktorej przechowywane sa kolejne skladowe.
@@ -62,7 +62,7 @@ public:
 /******************************************************************************
  *! \brief  Konstruktor bezparametryczny klasy Vector.                        | 
  |  Zwraca:                                                                   |
- |      Tablice wypelniona zerami.                                            |
+ |     \retval Tablice wypelniona zerami.                                     |
  */
 template <typename Templ_Typ, unsigned int Templ_Size>
 Vector<Templ_Typ,Templ_Size>::Vector() {
@@ -74,9 +74,9 @@ Vector<Templ_Typ,Templ_Size>::Vector() {
 /******************************************************************************
  *! \brief  Konstruktor klasy Vector.                                         |
  |  Argumenty:                                                                |
- |      tmp - Jednowymiarowa tablica typu jaki przyjmuje wektor.              |
+ |     \param tmp - Jednowymiarowa tablica typu jaki przyjmuje wektor.        |
  |  Zwraca:                                                                   |
- |      Tablice wypelniona wartosciami podanymi w argumencie.                 |
+ |      \retval Tablice wypelniona wartosciami podanymi w argumencie.         |
  */
 template <typename Templ_Typ, unsigned int Templ_Size>
 Vector<Templ_Typ,Templ_Size>::Vector(const std::initializer_list<Templ_Typ> &SizeList):
@@ -91,11 +91,10 @@ Vector<Templ_Typ,Templ_Size>::Vector(const std::initializer_list<Templ_Typ> &Siz
 /******************************************************************************
  *! \brief Realizuje dodawanie dwoch wektorow.                                |
  |  Argumenty:                                                                |
- |      this - pierwszy skladnik dodawania,                                   |
- |      v - drugi skladnik dodawania.                                         |
+ |    \param this - pierwszy skladnik dodawania,                              |
+ |    \param v    - drugi skladnik dodawania.                                 |
  |  Zwraca:                                                                   |
- |      Sume dwoch skladnikow przekazanych jako wskaznik                      |
- |      na parametr.                                                          |
+ |     \retval Sume dwoch skladnikow przekazanych jako wskaznik na parametr.  |
  */
 template <typename Templ_Typ, unsigned int Templ_Size>
 Vector<Templ_Typ,Templ_Size> Vector<Templ_Typ,Templ_Size>::operator + (const Vector<Templ_Typ,Templ_Size> &v) {
@@ -111,10 +110,10 @@ Vector<Templ_Typ,Templ_Size> Vector<Templ_Typ,Templ_Size>::operator + (const Vec
 /******************************************************************************
  *! \brief Realizuje odejmowanie dwoch wektorow.                              |
  |  Argumenty:                                                                |
- |      this - pierwszy skladnik odejmowania,                                 |
- |      v - drugi skladnik odejmowania.                                       |
+ |      \param this - pierwszy skladnik odejmowania,                          |
+ |      \param v    - drugi skladnik odejmowania.                             |
  |  Zwraca:                                                                   |
- |      Roznice dwoch skladnikow przekazanych jako wskaznik                   |
+ |      \retval Roznice dwoch skladnikow przekazanych jako wskaznik           |
  |      na parametr.                                                          |
  */
 template <typename Templ_Typ, unsigned int Templ_Size>
@@ -132,8 +131,8 @@ Vector<Templ_Typ,Templ_Size> Vector<Templ_Typ,Templ_Size>::operator - (const Vec
 /******************************************************************************
  *! \brief Realizuje mnozenie wektora przez liczbe zmiennoprzecinkowa.        |
  |  Argumenty:                                                                |
- |      this - pierwszy skladnik mnozenia (wektor),                           |
- |      tmp - drugi skladnik mnozenia (liczba typu wektora).                  |
+ |      \param this - pierwszy skladnik mnozenia (wektor),                    |
+ |      \param tmp  - drugi skladnik mnozenia (liczba typu wektora).          |
  |  Zwraca:                                                                   |
  |      Iloczyn dwoch skladnikow przekazanych jako wskaznik                   |
  |      na parametr.                                                          |
@@ -152,8 +151,8 @@ Vector<Templ_Typ,Templ_Size> Vector<Templ_Typ,Templ_Size>::operator * (const Tem
 /******************************************************************************
  * ! \brief ealizuje dzielenie wektora przez liczbe zmiennoprzecinkowa        |
  |  Argumenty:                                                                |
- |      this - licznik dzielenia,                                             |
- |      tmp - mianownik dzielenia.                                            |
+ |      \param this - licznik dzielenia,                                      |
+ |      \param tmp  - mianownik dzielenia.                                    |
  |  Zwraca:                                                                   |
  |      Iloraz dwoch skladnikow przekazanych jako wskaznik                    |
  |      na parametr.                                                          |
@@ -176,9 +175,9 @@ Vector<Templ_Typ,Templ_Size> Vector<Templ_Typ,Templ_Size>::operator / (const Tem
 /******************************************************************************
  * ! \brief Funktor wektora.                                                  |
  |  Argumenty:                                                                |
- |      index - index wektora.                                                |
+ |      \param index - index wektora.                                         |
  |  Zwraca:                                                                   |
- |      Wartosc wektora w danym miejscu tablicy jako stala.                   |
+ |      \retval Wartosc wektora w danym miejscu tablicy jako stala.           |
  */
 template<typename Templ_Typ, unsigned int Templ_Size>
 const Templ_Typ &Vector<Templ_Typ,Templ_Size>::operator [] (unsigned int index) const {
@@ -194,9 +193,9 @@ const Templ_Typ &Vector<Templ_Typ,Templ_Size>::operator [] (unsigned int index) 
 /******************************************************************************
  * ! \brief Funktor wektora.                                                  |
  |  Argumenty:                                                                |
- |      index - index wektora.                                                |
+ |     \param index - index wektora.                                          |
  |  Zwraca:                                                                   |
- |      Wartosc wektora w danym miejscu tablicy.                              |
+ |      \retval Wartosc wektora w danym miejscu tablicy.                      |
  */
 template<typename Templ_Typ, unsigned int Templ_Size>
 Templ_Typ &Vector<Templ_Typ,Templ_Size>::operator[](unsigned int index) {
@@ -213,9 +212,9 @@ Templ_Typ &Vector<Templ_Typ,Templ_Size>::operator[](unsigned int index) {
 /******************************************************************************
  * ! \brief Oblicza dlugosc boku                                              |
  |  Argumenty:                                                                |
- |      this - zadany wektor                                                  |
+ |      \param this - zadany wektor                                           |
  |  Zwraca:                                                                   |
- |      Dlugosc wektora jako double                                           |
+ |      \retval Dlugosc wektora jako double                                   |
  */
 template<typename Templ_Typ, unsigned int Templ_Size>
 double Vector<Templ_Typ,Templ_Size>::lenght() const{
@@ -232,8 +231,8 @@ double Vector<Templ_Typ,Templ_Size>::lenght() const{
 /******************************************************************************
  * ! \brief Przeciazenie operatora ==                                         |
  |  Argumenty:                                                                |
- |      this - pierwszy wektor,                                               |
- |      V2 - drugi wektor.                                                    |
+ |      \param this - pierwszy wektor,                                        |
+ |      \param V2 - drugi wektor.                                             |
  |  Zgodnosc do 10 cyfr po przecinku.                                         |
  */
 template<typename Templ_Typ, unsigned int Templ_Size>
@@ -251,8 +250,10 @@ bool Vector<Templ_Typ,Templ_Size>::operator == (const Vector<Templ_Typ,Templ_Siz
 /******************************************************************************
  * ! \brief Przeciazenie operatora <<                                         |
  |  Argumenty:                                                                |
- |      out - strumien wejsciowy,                                             |
- |      tmp - wektor.                                                         |
+ |      \param out - strumien wyjsciowy,                                      |
+ |      \param tmp - wektor.                                                  |
+ |   Zwraca:
+ |       \retval out -strumien wyjsciowy
  */
 template< typename Templ_Typ, unsigned int Templ_Size>
 std::ostream &operator << (std::ostream &out, Vector<Templ_Typ,Templ_Size> const &tmp){
@@ -267,8 +268,10 @@ std::ostream &operator << (std::ostream &out, Vector<Templ_Typ,Templ_Size> const
 /******************************************************************************
  * ! \brief Przeciazenie operatora >>                                         |
  |  Argumenty:                                                                |
- |      in - strumien wejsciowy,                                              |
- |      tmp - wektor.                                                         |
+ |     \param in - strumien wejsciowy,                                        |
+ |     \param tmp - wektor.                                                   |
+ |  Zwraca:
+ |     \retval in - strumien wejsciowy   
  */
 template< typename Templ_Typ, unsigned int Templ_Size>
 std::istream &operator >> (std::istream &in, Vector<Templ_Typ,Templ_Size> &tmp){

@@ -5,7 +5,7 @@
  |  Argumenty:                                                                |
  |      Brak argumentow.                                                      |
  |  Zwraca:                                                                   |
- |      Tablice wypelniona wartoscia 0.                                       |
+ |      \retval Tablice wypelniona wartoscia 0.                               |
  */
 Cuboid::Cuboid() {
     for (int i = 0; i < 8 ; ++i) {
@@ -17,9 +17,9 @@ Cuboid::Cuboid() {
 /******************************************************************************
  * ! \brief konstruktor klasy Cuboid.                                         |
  |  Argumenty:                                                                |
- |      tmp - Jednowymiarowa tablica typu Vector3D                            |
+ |      \param tmp - Jednowymiarowa tablica typu Vector3D                     |
  |  Zwraca:                                                                   |
- |      Tablice wypelniona wartosciami podanymi w argumencie                  |
+ |      \retval Tablice wypelniona wartosciami podanymi w argumencie          |
  */ 
 Cuboid::Cuboid(Vector3D tmp[8]) {
     for (int i = 0; i < 8 ; ++i) {
@@ -31,9 +31,9 @@ Cuboid::Cuboid(Vector3D tmp[8]) {
 /******************************************************************************
  * ! \brief Funktor prostopadloscianu.                                        |
  |  Argumenty:                                                                |
- |      index - index wierzcholka.                                            |
+ |      \param index - index wierzcholka.                                     |
  |  Zwraca:                                                                   |
- |      Wartosc wierzcholka w danym miejscu tablicy jako wektor staly.        |
+ |      \retval Wartosc wierzcholka w danym miejscu tablicy jako wektor staly.|
  */
 const Vector3D &Cuboid::operator [] (int index) const {
     if (index < 0 || index >= 8) {
@@ -45,9 +45,9 @@ const Vector3D &Cuboid::operator [] (int index) const {
 /******************************************************************************
  * ! \brief Funktor prostopadloscianu.                                        |
  |  Argumenty:                                                                |
- |      index - index wierzcholka.                                            |
+ |      \param index - index wierzcholka.                                     |
  |  Zwraca:                                                                   |
- |      Wartosc wierzcholka w danym miejscu tablicy jako wektor staly.        |
+ |      \retval Wartosc wierzcholka w danym miejscu tablicy jako wektor staly.|
  */
  Vector3D &Cuboid::operator [] (int index) {
     if (index < 0 || index >= 8) {
@@ -62,9 +62,9 @@ const Vector3D &Cuboid::operator [] (int index) const {
 /********************************************************************
  * !\brief Realizuje translacje o podany wektor                     |
  | Argumenty:                                                       |
- |    Zadany prostopadloscian;                                      |        
- |    tmp  - wektor translacji;                                     |
- |    times - ilosc powtorzen                                       |
+ |    \param this - Zadany prostopadloscian;                        |        
+ |    \param tmp  - wektor translacji;                              |
+ |    \param times - ilosc powtorzen                                |
  |  Wynik dzialania:                                                |
  |    Dodanie do kazdego wektora prostopadloscianu                  |
  |    wektora translacji. W ten sposob prostopadloscian             |
@@ -81,8 +81,8 @@ void Cuboid::Translate (Vector3D &tmp,  unsigned int times){
 /************************************************************************
  * ! \brief Realizuje translacje o podana macierz obrotu                |         
  * Argumenty:                                                           |                                                
- *    r_Matrix  - macierz obrotu;                                       |
- *    times - ilosc powtorzen                                           |
+ *    \param r_Matrix  - macierz obrotu;                                |
+ *    \param times - ilosc powtorzen                                    |
  *  Wynik dzialania:                                                    |
  *    Mnozenie wektorow opisujacych wierzcholki z macierza obrotu       |
  *    W ten sposob prostopadloscian jest obracany.                      |
@@ -103,9 +103,12 @@ void Cuboid::Rotate (Matrix3x3 &r_Matrix, unsigned int times){
 /************************************************************************
  * ! \brief Realizuje porownywanie dlugosci bokow                       |         
  * Argumenty:                                                           |
- *    Zadany prostokat;                                                 |
+ *    \param this - Zadany prostokat;                                   |
  *  Wynik dzialania:                                                    |
  *    Okresla czy boki sa rowne i wyswietla ich dlugosc                 |
+ *  Zwraca:
+ *     \retval true - jezeli boki sa rowne
+ *     \retval false - jezeli boki nie sa rowne
  */
 bool  Cuboid::compare_len_a() const{
     Vector3D a,b,c,d;
@@ -141,11 +144,14 @@ bool  Cuboid::compare_len_a() const{
 }
 
 /************************************************************************
- *! \brief  Realizuje porownywanie dlugosci bokow                       |         
+ * ! \brief Realizuje porownywanie dlugosci bokow                       |         
  * Argumenty:                                                           |
- *    Zadany prostokat;                                                 |
+ *    \param this - Zadany prostokat;                                   |
  *  Wynik dzialania:                                                    |
  *    Okresla czy boki sa rowne i wyswietla ich dlugosc                 |
+ *  Zwraca:
+ *     \retval true - jezeli boki sa rowne
+ *     \retval false - jezeli boki nie sa rowne
  */
 bool  Cuboid::compare_len_b() const{
     Vector3D a,b,c,d;
@@ -184,11 +190,14 @@ bool  Cuboid::compare_len_b() const{
 
 
 /************************************************************************
- *! \brief  Realizuje porownywanie dlugosci bokow                       |         
+ * ! \brief Realizuje porownywanie dlugosci bokow                       |         
  * Argumenty:                                                           |
- *    Zadany prostokat;                                                 |
+ *    \param this - Zadany prostokat;                                   |
  *  Wynik dzialania:                                                    |
  *    Okresla czy boki sa rowne i wyswietla ich dlugosc                 |
+ *  Zwraca:
+ *     \retval true - jezeli boki sa rowne
+ *     \retval false - jezeli boki nie sa rowne
  */
 bool  Cuboid::compare_len_c() const{
     Vector3D a,b,c,d;

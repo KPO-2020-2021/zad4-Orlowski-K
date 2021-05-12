@@ -6,7 +6,7 @@
 
 
 /*!
- * \file
+ * \file  Vector3D.hh
  * \brief Plik zawiera definicje klasy wektora 3D opartego na szablonie
  *
  */

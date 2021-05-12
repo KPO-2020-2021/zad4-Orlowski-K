@@ -6,10 +6,9 @@
 #include "Vector3D.hh"
 #include "Matrix3x3.hh"
 /*!
- * \file
- * \brief Plik zawiera definicje klasy cuboid
+ * \file  Cuboid.hh
  *
- *  Plik zawiera definicje klasy cuboid.
+ *  \brief Plik zawiera definicje klasy cuboid.
  */
 
 
@@ -54,12 +53,36 @@ class Cuboid {
 };
 
 
-
+/*!
+ * \brief Przeciazenie operatora << dla standardowego wyjscia
+ * \param out - strumien wyjsciowy
+ * \param tmp - prostopadloscian
+ * 
+ * \retval out - strumien wyjsciowy
+ *
+*/
 std::ostream& operator << ( std::ostream &out, const Cuboid &tmp );
 
 
+/*!
+ * \brief Przeciazenie operatora << dla strumienia plikowego
+ * \param out - strumien wyjsciowy
+ * \param tmp - prostopadloscian
+ * 
+ * \retval out - strumien wyjsciowy
+ *
+*/
 std::ofstream& operator << ( std::ofstream &out, const Cuboid &tmp);
 
+
+/*!
+ * \brief Przeciazenie operatora >> dla strumienia plikowego
+ * \param infile - strumien wejsciowy
+ * \param tmp - prostopadloscian
+ * 
+ * \retval infile - strumien wejsciowy
+ *
+*/
 std::ifstream& operator >> (std::ifstream &infile, Cuboid &tmp );
 
 
